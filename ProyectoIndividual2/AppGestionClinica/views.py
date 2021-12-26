@@ -4,4 +4,4 @@ from django.http import HttpResponse
 # Create your views here.
 
 def inicio(request):
-    return HttpResponse("Pagina de inicio")
+    return render(request,"AppGestionClinica/padre.html")
