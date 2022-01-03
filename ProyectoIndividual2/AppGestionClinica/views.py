@@ -82,4 +82,9 @@ def buscarDoctores(request):
     else:
         return HttpResponse("Por favor ingrese los datos!")
 
+def leerDoctores(request):
+    doctores = Doctores.objects.all()
+    contexto = {"doctores": doctores}
+    return render(request, "AppGestionClinica/leerDoctores.html", contexto)
+
 
