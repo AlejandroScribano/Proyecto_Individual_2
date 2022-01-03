@@ -68,3 +68,18 @@ def consultas(request):
     else:
         miFormulario = ConsultasFormulario()
         return render(request, "AppGestionClinica/consultas.html", {"miFormulario":miFormulario})
+
+def busquedaDoctores(request):
+    return render(request, "AppGestionClinica/busquedaDoctores.html")
+
+def buscarDoctores(request):
+    if request.GET["nombre"]:
+        nombre = request.GET["nombre"]
+        doctores = Doctores.objects.filter(nombre__icontains = nombre)
+
+        return render(request, "AppGestionClinica/resultadoBusqueda.html", {"nombre": nombre, "doctores":doctores})
+
+    else:
+        return HttpResponse("Por favor ingrese los datos!")
+
+

@@ -5,11 +5,12 @@
     <h2 class="text-white text-bold mb-2">DOCTORES</h2>
     <h1 style="color: white; background-color: #48bdc5;" >Cuidamos su salud</h1>
 
-    <form action="/AppGestionClinica/doctores/" method="POST"> {% csrf_token %}
+    <form action="/AppGestionClinica/doctores/" method="POST" style="color: white;"> {% csrf_token %}
         <Table>
             {{ miFormulario.as_table }}
         </Table>
-        <input type="submit" value="Enviar">
+        <input type="submit" value="Enviar" style="color: black;">
+    </form>
 
     
 {% endblock %}

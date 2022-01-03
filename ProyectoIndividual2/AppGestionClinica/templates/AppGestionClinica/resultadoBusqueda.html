@@ -1,0 +1,18 @@
+{% extends "AppGestionClinica/padre.html" %}
+{% load static %}
+
+{% block contenido_1 %}
+    <h2 class="text-white text-bold mb-2">BUSQUEDA DE DOCTORES</h2>
+    <h1 style="color: white; background-color: #48bdc5;" >Resultados de la búsqueda</h1>
+
+   {% if doctores %}
+        <ul>
+            {% for doctor in doctores %}
+                <li> <label style="color: white;"> {{doctor.nombre}} {{doctor.apellido}}</label> </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+
+    
+{% endblock %}

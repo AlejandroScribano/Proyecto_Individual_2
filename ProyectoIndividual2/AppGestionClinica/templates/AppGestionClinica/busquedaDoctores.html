@@ -1,0 +1,15 @@
+{% extends "AppGestionClinica/padre.html" %}
+{% load static %}
+
+{% block contenido_1 %}
+    <h2 class="text-white text-bold mb-2">BUSQUEDA DE DOCTORES</h2>
+    <h1 style="color: white; background-color: #48bdc5;" >Cuidamos su salud</h1>
+
+    <form action="/AppGestionClinica/buscarDoctores/" method="GET" style="margin-top: 20px;">
+        
+        <label style="color: white;">Nombre: </label> <input type="text" name="nombre" id="nombre">
+        <input type="submit" value="Buscar" style="color: black;">
+    </form>
+
+    
+{% endblock %}
