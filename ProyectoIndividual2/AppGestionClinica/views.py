@@ -87,4 +87,13 @@ def leerDoctores(request):
     contexto = {"doctores": doctores}
     return render(request, "AppGestionClinica/leerDoctores.html", contexto)
 
+def eliminarDoctor(request, doctor_nombre):
+    doctor = Doctores.objects.get(nombre=doctor_nombre)
+    doctor.delete()
+
+    doctores = Doctores.objects.all()
+    contexto = {"doctores": doctores}
+    return render(request, "AppGestionClinica/leerDoctores.html", contexto)
+
+
 

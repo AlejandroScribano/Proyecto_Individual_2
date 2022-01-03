@@ -7,8 +7,10 @@
 
     {% for doctor in doctores %}
         <li style="color: white;">{{doctor}}</li>
+        <a href="{% url 'EliminarDoctor' doctor.nombre %}" style="color: white;">Eliminar</a>
     {% endfor %}
-    
+    <br>
+    <a href="{% url 'Doctores' %}" style="color: white;">Agregar Doctor</a>
 
     
 {% endblock %}
