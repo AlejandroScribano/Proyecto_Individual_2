@@ -95,5 +95,33 @@ def eliminarDoctor(request, doctor_nombre):
     contexto = {"doctores": doctores}
     return render(request, "AppGestionClinica/leerDoctores.html", contexto)
 
+def editarDoctor(request, doctor_nombre):
+    doctor = Doctores.objects.get(nombre = doctor_nombre)
+
+    if request.method == "POST":
+        miFormulario = DoctoresFormulario(request.POST)
+
+        if miFormulario.is_valid():
+            informacion = miFormulario.cleaned_data
+            
+            doctor.nombre = informacion['nombre']
+            doctor.apellido = informacion['apellido']
+            doctor.dia_hora_atencion = informacion['dia_hora_atencion']
+            doctor.email = informacion['email']
+            doctor.telefono = informacion['telefono']
+            doctor.save()
+
+            doctores = Doctores.objects.all()
+            contexto = {"doctores": doctores}
+            return render(request, "AppGestionClinica/leerDoctores.html",contexto)
+        else:
+            return HttpResponse("Formulario incorrecto!")
+
+    else:
+        miFormulario = DoctoresFormulario(initial = {'nombre': doctor.nombre, 'apellido' : doctor.apellido,
+                                                    'dia_hora_atencion' : doctor.dia_hora_atencion, 'email': doctor.email,
+                                                    'telefono' : doctor.telefono})
+
+        return render(request, "AppGestionClinica/editarDoctor.html", {"miFormulario": miFormulario, "doctor_nombre" : doctor_nombre})
 
 

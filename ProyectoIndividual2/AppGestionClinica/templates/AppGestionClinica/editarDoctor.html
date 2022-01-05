@@ -1,0 +1,17 @@
+{% extends "AppGestionClinica/padre.html" %}
+{% load static %}
+
+{% block contenido_1 %}
+    <h2 class="text-white text-bold mb-2">DOCTORES</h2>
+    <h1 style="color: white; background-color: #48bdc5;" >Cuidamos su salud</h1>
+
+    <form action="" method="POST" style="color: black"> 
+        <Table>
+            {% csrf_token %}
+            {{ miFormulario.as_table }}
+        </Table>
+        <input type="submit" value="Editar" style="color: black;">
+    </form>
+
+    
+{% endblock %}

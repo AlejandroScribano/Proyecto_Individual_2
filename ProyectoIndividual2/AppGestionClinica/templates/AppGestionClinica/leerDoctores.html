@@ -7,6 +7,7 @@
 
     {% for doctor in doctores %}
         <li style="color: white;">{{doctor}}</li>
+        <a href="{% url 'EditarDoctor' doctor.nombre %}" style="color: white;">Editar</a>
         <a href="{% url 'EliminarDoctor' doctor.nombre %}" style="color: white;">Eliminar</a>
     {% endfor %}
     <br>
@@ -14,3 +15,4 @@
 
     
 {% endblock %}
+
